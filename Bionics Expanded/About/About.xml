@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Bionics Expanded</name>
+	<author>Pratix</author>
+	<supportedVersions>
+		<li>1.5</li>
+	</supportedVersions>
+	<packageId>Pratix.BionicsExpanded</packageId>
+	<description>
+Adds some prosthetics and bionics which should be in the base game but aren't.
+
+Includes:
+
+- Prosthetic lung
+- Prosthetic kidney
+- Prosthetic liver
+- Prosthetic eye
+- Prosthetic stomach
+- Prosthetic spine
+
+- Bionic liver
+	</description>
+</ModMetaData>

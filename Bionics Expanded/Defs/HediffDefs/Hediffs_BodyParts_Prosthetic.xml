@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Bases: Prosthetic body part (industrial tech) -->
+
+  <ThingDef Name="BodyPartProstheticBase" ParentName="BodyPartBase" Abstract="True">
+    <techLevel>Industrial</techLevel>
+    <thingCategories>
+      <li>BodyPartsProsthetic</li>
+    </thingCategories>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.80</drawSize>
+      <color>(154,124,104)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>15000</WorkToMake>
+    </statBases>
+    <recipeMaker>
+      <displayPriority>600</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef Name="BodyPartProstheticMakeableBase" ParentName="BodyPartProstheticBase" Abstract="True">
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+      <unfinishedThingDef>UnfinishedHealthItemProsthetic</unfinishedThingDef>
+      <researchPrerequisite>Prosthetics</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+
+  <RecipeDef Name="SurgeryInstallBodyPartProstheticBase" ParentName="SurgeryInstallBodyPartArtificialBase" Abstract="True">
+    <skillRequirements>
+      <Medicine>4</Medicine>
+    </skillRequirements>
+  </RecipeDef>
+
+  <!-- Prosthetic liver -->
+
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>SimpleProstheticLiver</defName>
+    <label>prosthetic liver</label>
+    <labelNoun>a prosthetic liver</labelNoun>
+    <description>An installed prosthetic liver. Basic chemicals break apart nutrients to ones the body can use and remove most toxins from the bloodstream. Although, it does not match the performance of a biological liver.</description>
+    <descriptionHyperlinks><ThingDef>SimpleProstheticLiver</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>SimpleProstheticLiver</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>0.80</partEfficiency>
+    </addedPartProps>
+  </HediffDef>
+
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>SimpleProstheticLiver</defName>
+    <label>prosthetic liver</label>
+    <description>A liver prothesis. Basic chemicals break apart nutrients to ones the body can use and remove most toxins from the bloodstream. Although, it does not match the performance of a biological liver.</description>
+    <descriptionHyperlinks><RecipeDef>InstallSimpleProstheticLiver</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Steel>25</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <Mass>2</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallBodyPartProstheticBase">
+    <defName>InstallSimpleProstheticLiver</defName>
+    <label>install prosthetic liver</label>
+    <description>Install a prosthetic liver.</description>
+    <descriptionHyperlinks>
+      <ThingDef>SimpleProstheticLiver</ThingDef>
+      <HediffDef>SimpleProstheticLiver</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing prosthetic liver.</jobString>
+    <deathOnFailedSurgeryChance>0.25</deathOnFailedSurgeryChance>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SimpleProstheticLiver</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>SimpleProstheticLiver</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Liver</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>SimpleProstheticLiver</addsHediff>
+  </RecipeDef>
+
+  <!-- Prosthetic lung -->
+
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>SimpleProstheticLung</defName>
+    <label>prosthetic lung</label>
+    <labelNoun>a prosthetic lung</labelNoun>
+    <description>An installed prosthetic lung. An electric motor dynamically increases oxygen intake proportionally to the rate of bloodflow, but it lacks the same precision as a biological lung.</description>
+    <descriptionHyperlinks><ThingDef>SimpleProstheticLung</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>SimpleProstheticLung</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>0.80</partEfficiency>
+    </addedPartProps>
+  </HediffDef>
+
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>SimpleProstheticLung</defName>
+    <label>prosthetic lung</label>
+    <description>A lung prothesis. An electric motor dynamically increases oxygen intake proportionally to the rate of bloodflow, but it lacks the same precision as a biological lung.</description>
+    <descriptionHyperlinks><RecipeDef>InstallSimpleProstheticLiver</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Steel>25</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <Mass>2</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallBodyPartProstheticBase">
+    <defName>InstallSimpleProstheticLung</defName>
+    <label>install prosthetic lung</label>
+    <description>Install a prosthetic lung.</description>
+    <descriptionHyperlinks>
+      <ThingDef>SimpleProstheticLung</ThingDef>
+      <HediffDef>SimpleProstheticLung</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing prosthetic lung.</jobString>
+    <deathOnFailedSurgeryChance>0.25</deathOnFailedSurgeryChance>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SimpleProstheticLung</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>SimpleProstheticLung</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Lung</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>SimpleProstheticLung</addsHediff>
+  </RecipeDef>
+
+  <!-- Prosthetic kidney -->
+
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>SimpleProstheticKidney</defName>
+    <label>prosthetic kidney</label>
+    <labelNoun>a prosthetic kidney</labelNoun>
+    <description>An installed prosthetic kidney. Artificial sensors and secretors maintain balance in electrolytes and produce important chemicals for maintaining blood filtration, but without more complex chemical composition and readings, it cannot match the same performance of a biological kidney.</description>
+    <descriptionHyperlinks><ThingDef>SimpleProstheticKidney</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>SimpleProstheticKidney</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>0.80</partEfficiency>
+    </addedPartProps>
+  </HediffDef>
+
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>SimpleProstheticKidney</defName>
+    <label>prosthetic kidney</label>
+    <description>A kidney prothesis. Artificial sensors and secretors maintain balance in electrolytes and produce important chemicals for maintaining blood filtration, but without more complex chemical composition and readings, it cannot match the same performance of a biological kidney.</description>
+    <descriptionHyperlinks><RecipeDef>InstallSimpleProstheticKidney</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Steel>25</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <Mass>2</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallBodyPartProstheticBase">
+    <defName>InstallSimpleProstheticKidney</defName>
+    <label>install prosthetic kidney</label>
+    <description>Install a prosthetic kidney.</description>
+    <descriptionHyperlinks>
+      <ThingDef>SimpleProstheticKidney</ThingDef>
+      <HediffDef>SimpleProstheticKidney</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing prosthetic kidney.</jobString>
+    <deathOnFailedSurgeryChance>0.25</deathOnFailedSurgeryChance>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SimpleProstheticKidney</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>SimpleProstheticKidney</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Kidney</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>SimpleProstheticKidney</addsHediff>
+  </RecipeDef>
+
+  <!-- Prosthetic eye -->
+
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>SimpleProstheticEye</defName>
+    <label>prosthetic eye</label>
+    <labelNoun>a prosthetic eye</labelNoun>
+    <description>An installed prosthetic eye. With a detailed camera nearly matching the same quality as a real eye, it still lacks the ability to see things at a long distance or to squint accurately.</description>
+    <descriptionHyperlinks><ThingDef>SimpleProstheticEye</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>SimpleProstheticEye</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>0.85</partEfficiency>
+    </addedPartProps>
+  </HediffDef>
+
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>SimpleProstheticEye</defName>
+    <label>prosthetic eye</label>
+    <description>A eye prosthesis. With a detailed camera nearly matching the same quality as a real eye, it still lacks the ability to see things at a long distance or to squint accurately.</description>
+    <descriptionHyperlinks><RecipeDef>InstallSimpleProstheticEye</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Steel>40</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <Mass>0.3</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallBodyPartProstheticBase">
+    <defName>InstallSimpleProstheticEye</defName>
+    <label>install prosthetic eye</label>
+    <description>Install a prosthetic eye.</description>
+    <descriptionHyperlinks>
+      <ThingDef>SimpleProstheticEye</ThingDef>
+      <HediffDef>SimpleProstheticEye</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing prosthetic eye.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SimpleProstheticEye</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>SimpleProstheticEye</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Eye</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>SimpleProstheticEye</addsHediff>
+  </RecipeDef>
+
+  <!-- Prosthetic spine -->
+
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>SimpleProstheticSpine</defName>
+    <label>prosthetic spine</label>
+    <labelNoun>a prosthetic spine</labelNoun>
+    <description>An installed prosthetic spine. A complex structure of servos allow for diverse movement, and a simple cable assembly transfers neural commands to the muscles. Though, limited information can be sent through at a time, making it less efficient than a biological spine.</description>
+    <descriptionHyperlinks><ThingDef>SimpleProstheticSpine</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>SimpleProstheticSpine</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>0.85</partEfficiency>
+    </addedPartProps>
+  </HediffDef>
+
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>SimpleProstheticSpine</defName>
+    <label>prosthetic spine</label>
+    <description>A spine prosthesis. A complex structure of servos allow for diverse movement, and a simple cable assembly transfers neural commands to the muscles. Though, limited information can be sent through at a time, making it less efficient than a biological spine.</description>
+    <descriptionHyperlinks><RecipeDef>InstallSimpleProstheticSpine</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Steel>40</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <Mass>0.3</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallBodyPartProstheticBase">
+    <defName>InstallSimpleProstheticSpine</defName>
+    <label>install prosthetic spine</label>
+    <description>Install a prosthetic spine.</description>
+    <descriptionHyperlinks>
+      <ThingDef>SimpleProstheticSpine</ThingDef>
+      <HediffDef>SimpleProstheticSpine</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing prosthetic spine.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SimpleProstheticSpine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>SimpleProstheticSpine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Spine</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>SimpleProstheticSpine</addsHediff>
+  </RecipeDef>
+
+
+  <!-- Prosthetic stomach -->
+
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>SimpleProstheticStomach</defName>
+    <label>prosthetic stomach</label>
+    <labelNoun>a prosthetic stomach</labelNoun>
+    <description>An installed prosthetic stomach. While it is capable of digesting food using chemicals similar to that of stomach acid, it doesn't match the same efficiency as that of a natural stomach.</description>
+    <descriptionHyperlinks><ThingDef>SimpleProstheticStomach</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>SimpleProstheticStomach</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>0.80</partEfficiency>
+    </addedPartProps>
+  </HediffDef>
+
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>SimpleProstheticStomach</defName>
+    <label>prosthetic stomach</label>
+    <description>A stomach prothesis. While it is capable of digesting food using chemicals similar to that of stomach acid, it doesn't match the same efficiency as that of a natural stomach.</description>
+    <descriptionHyperlinks><RecipeDef>InstallSimpleProstheticStomach</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Steel>25</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <Mass>2</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallBodyPartProstheticBase">
+    <defName>InstallSimpleProstheticStomach</defName>
+    <label>install prosthetic stomach</label>
+    <description>Install a prosthetic stomach.</description>
+    <descriptionHyperlinks>
+      <ThingDef>SimpleProstheticStomach</ThingDef>
+      <HediffDef>SimpleProstheticStomach</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing prosthetic stomach.</jobString>
+    <deathOnFailedSurgeryChance>0.25</deathOnFailedSurgeryChance>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SimpleProstheticStomach</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>SimpleProstheticStomach</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Stomach</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>SimpleProstheticStomach</addsHediff>
+  </RecipeDef>
+
+
+</Defs>

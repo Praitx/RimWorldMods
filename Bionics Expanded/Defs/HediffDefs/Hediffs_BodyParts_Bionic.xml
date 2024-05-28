@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Base: Bionic body part (spacer tech) -->
+
+  <ThingDef Name="BodyPartBionicBase" ParentName="BodyPartBase" Abstract="True">
+    <techLevel>Spacer</techLevel>
+    <thingCategories>
+      <li>BodyPartsBionic</li>
+    </thingCategories>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.80</drawSize>
+      <color>(189,169,118)</color>
+    </graphicData>
+    <tradeTags>
+      <li>Bionic</li>
+    </tradeTags>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+    <statBases>
+      <WorkToMake>26000</WorkToMake>
+    </statBases>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+      <researchPrerequisite>Bionics</researchPrerequisite>
+      <recipeUsers>
+        <li>FabricationBench</li>
+      </recipeUsers>
+      <displayPriority>300</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+
+  <!-- Bionic liver -->
+
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>BionicLiver</defName>
+    <label>bionic liver</label>
+    <labelNoun>a bionic liver</labelNoun>
+    <description>An installed bionic liver. Advanced chemical sensors and synthesizers efficiently detoxify the bloodstream and metabolize biochemicals which improve blood filtration and digestion. It is better than a biological liver in almost every way.</description>
+    <descriptionHyperlinks><ThingDef>BionicLiver</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>BionicLiver</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+  </HediffDef>
+
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>BionicLiver</defName>
+    <label>bionic liver</label>
+    <description>An advanced artificial liver. Advanced chemical sensors and synthesizers efficiently detoxify the bloodstream and metabolize biochemicals which improve blood filtration and digestion. It is better than a biological liver in almost every way.</description>
+    <descriptionHyperlinks><RecipeDef>InstallBionicLiver</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>InstallBionicLiver</defName>
+    <label>install bionic liver</label>
+    <description>Install a bionic liver.</description>
+    <descriptionHyperlinks>
+      <ThingDef>BionicLiver</ThingDef>
+      <HediffDef>BionicLiver</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing bionic liver.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>BionicLiver</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>BionicLiver</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Liver</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>BionicLiver</addsHediff>
+  </RecipeDef>
+
+  <!-- Neural stimulator -->
+<!--
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>NeuralStimulator</defName>
+    <label>stimulator stimulator</label>
+    <labelNoun>a stimulator assistant</labelNoun>
+    <description>An implanted neural stimulator. A special chemical is released into the brain which improves neuron efficiency and stimulation, providing an overall benefit to consciousness.</description>
+    <descriptionHyperlinks><ThingDef>NeuralStimulator</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>NeuralStimulator</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.05</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+  </HediffDef>
+
+  <ThingDef ParentName="ImplantHediffBase">
+    <defName>NeuralStimulator</defName>
+    <label>neural stimulator</label>
+    <description>A neural stimulator. A special chemical is released into the brain which improves neuron efficiency and stimulation, providing an overall benefit to consciousness.</description>
+    <descriptionHyperlinks><RecipeDef>InstallNeuralStimulator</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>InstallNeuralStimulator</defName>
+    <label>install neural stimulator</label>
+    <description>Install a neural stimulator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>NeuralStimulator</ThingDef>
+      <HediffDef>NeuralStimulator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing neural stimulator.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>NeuralStimulator</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>NeuralStimulator</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>NeuralStimulator</addsHediff>
+  </RecipeDef>
+-->
+
+</Defs>
